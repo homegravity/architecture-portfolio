@@ -1,0 +1,152 @@
+.home-page {
+  display: grid;
+  min-height: 100svh;
+  padding: 48px 20px;
+  background-color: #ffffff;
+  color: #111111;
+  place-items: center;
+}
+
+.home-intro {
+  display: flex;
+  width: 100%;
+  max-width: 320px;
+  flex-direction: column;
+  align-items: center;
+  animation: home-reveal 600ms ease-out both;
+}
+
+.home-profile-media {
+  display: grid;
+  width: clamp(170px, 18vw, 220px);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  background:
+    linear-gradient(
+      135deg,
+      #f7f7f7 0%,
+      #eeeeee 50%,
+      #f9f9f9 100%
+    );
+  color: #aaaaaa;
+  place-items: center;
+}
+
+.home-profile-media span {
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.home-name {
+  margin: 24px 0 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.home-actions {
+  display: flex;
+  width: 100%;
+  margin-top: 36px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.home-link {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #111111;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.home-link-primary {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.home-link-secondary {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+.home-link:hover {
+  transform: translateY(-2px);
+}
+
+.home-link-primary:hover {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+.home-link-secondary:hover {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.home-contact {
+  display: flex;
+  margin-top: 28px;
+  align-items: center;
+  gap: 18px;
+}
+
+.home-contact button {
+  color: #777777;
+  cursor: pointer;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.home-contact button:hover {
+  color: #111111;
+  transform: translateY(-1px);
+}
+
+@keyframes home-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .home-page {
+    padding: 36px 20px;
+  }
+
+  .home-intro {
+    max-width: 280px;
+  }
+
+  .home-profile-media {
+    width: 180px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-intro {
+    animation: none;
+  }
+
+  .home-link,
+  .home-contact button {
+    transition: none;
+  }
+}

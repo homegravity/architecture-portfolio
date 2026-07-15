@@ -1,23 +1,40 @@
 import { Link } from 'react-router';
+import siteInfo from '../data/siteInfo';
+import './HomePage.css';
 
 function HomePage() {
   return (
     <main className="home-page">
-      <h1>TEST HOME PAGE 123</h1>
-      <p>Portfolio website setup complete.</p>
+      <section className="home-intro">
+        <div
+          className="home-profile-media"
+          aria-label="프로필 이미지가 들어갈 영역"
+        >
+          <span>PROFILE IMAGE</span>
+        </div>
 
-      <nav
-        style={{
-          display: 'flex',
-          gap: '24px',
-          marginTop: '32px',
-          color: '#000000',
-        }}
-      >
-        <Link to="/archive">ARCHIVE</Link>
-        <Link to="/about">ABOUT</Link>
-        <Link to="/terms">TERMS</Link>
-      </nav>
+        <p className="home-name">{siteInfo.name}</p>
+
+        <nav className="home-actions" aria-label="홈 주요 메뉴">
+          <Link className="home-link home-link-primary" to="/archive">
+            ARCHIVE
+          </Link>
+
+          <Link className="home-link home-link-secondary" to="/about">
+            ABOUT
+          </Link>
+        </nav>
+
+        <div className="home-contact">
+          <button type="button" aria-label="Instagram">
+            IG
+          </button>
+
+          <button type="button" aria-label="Email">
+            MAIL
+          </button>
+        </div>
+      </section>
     </main>
   );
 }
