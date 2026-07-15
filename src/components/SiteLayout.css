@@ -8,11 +8,14 @@
 }
 
 .site-header {
+  position: relative;
+  z-index: 30;
   display: flex;
+  min-height: 84px;
   align-items: center;
   justify-content: space-between;
-  min-height: 84px;
   border-bottom: 1px solid #e8e8e8;
+  background-color: #ffffff;
 }
 
 .site-logo {
@@ -72,4 +75,127 @@
   font-size: 0.68rem;
   letter-spacing: 0.04em;
   color: #aaaaaa;
+}
+
+.mobile-menu-button {
+  display: none;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobile-menu-button span {
+  display: block;
+  width: 21px;
+  height: 1px;
+  background-color: #111111;
+  transition:
+    transform 260ms ease,
+    opacity 200ms ease;
+}
+
+.mobile-menu-button.is-open span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.mobile-menu-button.is-open span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+.mobile-menu {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: flex;
+  padding: 118px 24px 36px;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition:
+    opacity 260ms ease,
+    visibility 260ms ease,
+    transform 320ms ease;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-navigation {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-navigation a {
+  display: flex;
+  min-height: 60px;
+  align-items: center;
+  border-bottom: 1px solid #eeeeee;
+  color: #777777;
+  font-size: clamp(1rem, 5vw, 1.4rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition:
+    color 180ms ease,
+    padding-left 220ms ease;
+}
+
+.mobile-navigation a:first-child {
+  border-top: 1px solid #eeeeee;
+}
+
+.mobile-navigation a:hover,
+.mobile-navigation a.active {
+  padding-left: 8px;
+  color: #111111;
+}
+
+.mobile-menu-footer {
+  margin: 0;
+  color: #aaaaaa;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    min-height: 72px;
+  }
+
+  .site-navigation {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+  }
+
+  .site-layout > main {
+    padding: 64px 0;
+  }
+}
+
+@media (min-width: 721px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu,
+  .mobile-menu-button span,
+  .mobile-navigation a {
+    transition: none;
+  }
 }

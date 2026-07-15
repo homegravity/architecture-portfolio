@@ -1,8 +1,34 @@
+import { Link } from 'react-router';
+import projects from '../data/projects';
+import './ArchivePage.css';
+
 function ArchivePage() {
   return (
-    <main>
-      <h1>ARCHIVE</h1>
-      <p>작업물 목록이 들어갈 페이지입니다.</p>
+    <main className="archive-page">
+      <header className="archive-intro">
+        <p className="archive-label">SELECTED WORKS</p>
+        <h1>ARCHIVE</h1>
+      </header>
+
+      <section className="project-grid" aria-label="작업물 목록">
+        {projects.map((project) => (
+            <Link
+            className="project-card"
+            key={project.id}
+            to={`/archive/${project.slug}`}
+            aria-label={`${project.title} 상세 페이지 보기`}
+          >
+            <div className="project-thumbnail">
+              <span className="project-placeholder">IMAGE</span>
+          
+              <div className="project-overlay">
+                <h2>{project.title}</h2>
+                <p>{project.year}</p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </section>
     </main>
   );
 }
