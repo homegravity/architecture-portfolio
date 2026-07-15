@@ -1,5 +1,5 @@
 const siteInfo = {
-  name: 'H.S YANG',
+  name: 'H.S Yang',
   instagramUrl: '',
   email: '',
   copyrightText: 'All rights reserved.',
