@@ -1,3 +1,4 @@
+import AboutListSection from '../components/AboutListSection';
 import aboutInfo from '../data/aboutInfo';
 import siteInfo from '../data/siteInfo';
 import './AboutPage.css';
@@ -30,65 +31,20 @@ function AboutPage() {
 
 
       <div className="about-sections">
-        <section className="about-section">
-          <h2>EDUCATION</h2>
+      <AboutListSection
+          title="EDUCATION"
+          items={aboutInfo.education}
+        />
 
-          <div className="about-list">
-            {aboutInfo.education.map((item) => (
-              <article
-              className="about-list-item"
-              key={`${item.period}-${item.title}`}
-            >
-              <div className="about-item-content">
-                <h3>{item.title}</h3>
-                <p>{item.organization}</p>
-              </div>
-            
-              <p className="about-period">{item.period}</p>
-            </article>
-            ))}
-          </div>
-        </section>
+        <AboutListSection
+          title="EXPERIENCE"
+          items={aboutInfo.experience}
+        />
 
-        <section className="about-section">
-          <h2>EXPERIENCE</h2>
-
-          <div className="about-list">
-            {aboutInfo.experience.map((item) => (
-              <article
-                className="about-list-item"
-                key={`${item.period}-${item.title}`}
-              >
-                <div className="about-item-content">
-                  <h3>{item.title}</h3>
-                  <p>{item.organization}</p>
-                </div>
-
-                <p className="about-period">{item.period}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="about-section">
-          <h2>AWARDS</h2>
-
-          <div className="about-list">
-            {aboutInfo.awards.map((item) => (
-              <article
-  className="about-list-item"
-  key={`${item.period}-${item.title}`}
->
-  <div className="about-item-content">
-    <h3>{item.title}</h3>
-    <p>{item.organization}</p>
-  </div>
-
-  <p className="about-period">{item.period}</p>
-</article>
-            ))}
-          </div>
-        </section>
+        <AboutListSection
+          title="AWARDS"
+          items={aboutInfo.awards}
+        />
 
         <section className="about-section">
           <h2>SKILLS</h2>
