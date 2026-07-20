@@ -1,7 +1,7 @@
 const aboutInfo = {
   
   
-    profileImage: '',
+  profileImage: '/images/profile/about-profile.jpg',
     profileImageAlt: 'H.S Yang profile',
   
     introduction:

@@ -33,6 +33,14 @@
   place-items: center;
 }
 
+.home-profile-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
 .home-profile-media span {
   font-size: 0.62rem;
   letter-spacing: 0.16em;

@@ -73,21 +73,29 @@ function ProjectDetailPage() {
         className="project-image-grid"
         aria-label={`${project.title} 작업물 이미지`}
       >
-        <div className="project-detail-image">
-          <span>PROJECT IMAGE 01</span>
-        </div>
-
-        <div className="project-detail-image">
-          <span>PROJECT IMAGE 02</span>
-        </div>
-
-        <div className="project-detail-image">
-          <span>PROJECT IMAGE 03</span>
-        </div>
-
-        <div className="project-detail-image">
-          <span>PROJECT IMAGE 04</span>
-        </div>
+        {project.images.length > 0
+          ? project.images.map((image, index) => (
+              <figure
+                className="project-detail-image"
+                key={`${image.src}-${index}`}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                />
+              </figure>
+            ))
+          : Array.from({ length: 4 }).map((_, index) => (
+              <div
+                className="project-detail-image"
+                key={`placeholder-${index}`}
+              >
+                <span>
+                  PROJECT IMAGE {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
+            ))}
       </section>
     
       <section className="other-projects">
@@ -108,8 +116,16 @@ function ProjectDetailPage() {
               aria-label={`${otherProject.title} 상세 페이지 보기`}
             >
               <div className="other-project-thumbnail">
+              {otherProject.thumbnail ? (
+                <img
+                  src={otherProject.thumbnail}
+                  alt={otherProject.thumbnailAlt}
+                  loading="lazy"
+                />
+              ) : (
                 <span>IMAGE</span>
-              </div>
+              )}
+            </div>
 
               <div className="other-project-info">
                 <h2>{otherProject.title}</h2>

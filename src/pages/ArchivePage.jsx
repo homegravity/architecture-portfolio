@@ -19,8 +19,15 @@ function ArchivePage() {
             aria-label={`${project.title} 상세 페이지 보기`}
           >
             <div className="project-thumbnail">
-              <span className="project-placeholder">IMAGE</span>
-          
+              {project.thumbnail ? (
+                <img
+                  src={project.thumbnail}
+                  alt={project.thumbnailAlt}
+                />
+              ) : (
+                <span className="project-placeholder">IMAGE</span>
+              )}
+
               <div className="project-overlay">
                 <h2>{project.title}</h2>
                 <p>{project.year}</p>

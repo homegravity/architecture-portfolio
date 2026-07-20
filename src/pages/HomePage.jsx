@@ -6,12 +6,16 @@ function HomePage() {
   return (
     <main className="home-page">
       <section className="home-intro">
-        <div
-          className="home-profile-media"
-          aria-label="프로필 이미지가 들어갈 영역"
-        >
+      <div className="home-profile-media">
+        {siteInfo.homeProfileImage ? (
+          <img
+            src={siteInfo.homeProfileImage}
+            alt={siteInfo.homeProfileImageAlt}
+          />
+        ) : (
           <span>PROFILE IMAGE</span>
-        </div>
+        )}
+      </div>
 
         <p className="home-name">{siteInfo.name}</p>
 
