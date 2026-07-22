@@ -104,22 +104,56 @@
   display: flex;
   margin-top: 28px;
   align-items: center;
-  gap: 18px;
+  justify-content: center;
+  gap: 14px;
 }
 
-.home-contact button {
+.home-contact-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: transparent;
   color: #777777;
   cursor: pointer;
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
+  place-items: center;
   transition:
     color 180ms ease,
+    background-color 180ms ease,
     transform 180ms ease;
 }
 
-.home-contact button:hover {
+.home-contact-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.home-contact-icon svg .icon-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.home-contact-icon:hover {
+  background-color: #f3f3f3;
   color: #111111;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+.home-contact-icon.is-disabled {
+  color: #cccccc;
+  cursor: default;
+}
+
+.home-contact-icon.is-disabled:hover {
+  background-color: transparent;
+  color: #cccccc;
+  transform: none;
 }
 
 @keyframes home-reveal {

@@ -167,6 +167,29 @@
 }
 
 @media (max-width: 700px) {
+  
+  .about-contact-row {
+    grid-template-columns: 76px minmax(0, 1fr);
+    align-items: start;
+    gap: 14px;
+  }
+
+  .about-contact-action {
+    display: grid;
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .about-contact-link {
+    justify-self: start;
+  }
+
+  .about-contact-empty {
+    justify-self: start;
+  }
+  
   .about-header {
     margin-bottom: 64px;
   }
@@ -194,4 +217,102 @@
     grid-template-columns: 1fr;
     gap: 8px;
   }
+}
+
+
+
+.about-contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.about-contact-row {
+  display: grid;
+  min-height: 34px;
+  grid-template-columns: 110px minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+
+.about-contact-row > p {
+  margin: 0;
+  color: #777777;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+}
+
+.about-contact-action {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.about-contact-action > span {
+  min-width: 0;
+  color: #444444;
+  font-size: 0.74rem;
+  overflow-wrap: anywhere;
+}
+
+.about-contact-button,
+.about-contact-link {
+  display: inline-flex;
+  padding: 5px 0;
+  align-items: center;
+  gap: 6px;
+  color: #333333;
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.about-contact-link {
+  justify-self: end;
+}
+
+.about-contact-button-text,
+.about-contact-link-text {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+.about-contact-button-text::after,
+.about-contact-link-text::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background-color: #111111;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms ease;
+}
+
+.about-contact-button:hover
+  .about-contact-button-text::after,
+.about-contact-link:hover
+  .about-contact-link-text::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.about-contact-arrow {
+  transition: transform 180ms ease;
+}
+
+.about-contact-link:hover .about-contact-arrow {
+  transform: translate(2px, -2px);
+}
+
+.about-contact-empty {
+  justify-self: end;
+  color: #aaaaaa;
+  font-size: 0.72rem;
 }

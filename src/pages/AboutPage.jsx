@@ -1,3 +1,4 @@
+import CopyEmailButton from '../components/CopyEmailButton';
 import AboutListSection from '../components/AboutListSection';
 import aboutInfo from '../data/aboutInfo';
 import siteInfo from '../data/siteInfo';
@@ -59,22 +60,62 @@ function AboutPage() {
         <section className="about-section about-contact">
           <h2>CONTACT</h2>
 
-          <div>
-            <p>
-              EMAIL
-              <span>
-                {siteInfo.email || 'EMAIL WILL BE ADDED'}
-              </span>
-            </p>
+          <div className="about-contact-links">
+            <div className="about-contact-row">
+              <p>EMAIL</p>
 
-            <p>
-              INSTAGRAM
-              <span>
-                {siteInfo.instagramUrl
-                  ? 'VIEW INSTAGRAM'
-                  : 'INSTAGRAM WILL BE ADDED'}
-              </span>
-            </p>
+              {siteInfo.email ? (
+                <div className="about-contact-action">
+                  <span>{siteInfo.email}</span>
+
+                  <CopyEmailButton
+                  email={siteInfo.email}
+                  className="about-contact-button"
+                  copiedChildren={
+                    <span className="about-contact-button-text">
+                      COPIED
+                    </span>
+                  }
+                >
+                  <span className="about-contact-button-text">
+                    COPY
+                  </span>
+                </CopyEmailButton>
+                </div>
+              ) : (
+                <span className="about-contact-empty">
+                  EMAIL WILL BE ADDED
+                </span>
+              )}
+            </div>
+
+            <div className="about-contact-row">
+              <p>INSTAGRAM</p>
+
+              {siteInfo.instagramUrl ? (
+                <a
+                className="about-contact-link"
+                href={siteInfo.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="about-contact-link-text">
+                  OPEN INSTAGRAM
+                </span>
+              
+                <span
+                  className="about-contact-arrow"
+                  aria-hidden="true"
+                >
+                  ↗
+                </span>
+              </a>
+              ) : (
+                <span className="about-contact-empty">
+                  INSTAGRAM WILL BE ADDED
+                </span>
+              )}
+            </div>
           </div>
         </section>
       </div>
