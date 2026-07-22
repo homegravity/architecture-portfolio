@@ -60,7 +60,7 @@ function CopyEmailButton({
 
   return (
     <button
-      className={className}
+    className={`${className} ${isCopied ? 'is-copied' : ''}`}
       type="button"
       onClick={handleCopy}
       aria-label={`${email} 이메일 주소 복사`}

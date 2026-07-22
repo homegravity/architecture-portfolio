@@ -319,3 +319,22 @@
   font-size: 0.66rem;
   color: #999999;
 }
+
+
+.project-image-button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: zoom-in;
+}
+
+.project-image-button img {
+  transition:
+    transform 500ms ease,
+    opacity 300ms ease;
+}
+
+.project-image-button:hover img {
+  opacity: 0.94;
+  transform: scale(1.015);
+}

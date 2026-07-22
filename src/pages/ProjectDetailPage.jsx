@@ -1,11 +1,15 @@
-import { useEffect } from 'react';
-
+import { useEffect, useState } from 'react';
+import ImageLightbox from '../components/ImageLightbox';
 import { Link, useParams } from 'react-router';
 import projects from '../data/projects';
 import './ProjectDetailPage.css';
 
 function ProjectDetailPage() {
   const { slug } = useParams();
+
+  const [selectedImageIndex, setSelectedImageIndex] =
+  useState(null);
+
 
   const project = projects.find((item) => item.slug === slug);
   useEffect(() => {
@@ -75,16 +79,23 @@ function ProjectDetailPage() {
       >
         {project.images.length > 0
           ? project.images.map((image, index) => (
-              <figure
-                className="project-detail-image"
-                key={`${image.src}-${index}`}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  loading="lazy"
-                />
-              </figure>
+            <figure
+            className="project-detail-image"
+            key={`${image.src}-${index}`}
+          >
+            <button
+              className="project-image-button"
+              type="button"
+              onClick={() => setSelectedImageIndex(index)}
+              aria-label={`${image.alt} 확대해서 보기`}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading="lazy"
+              />
+            </button>
+          </figure>
             ))
           : Array.from({ length: 4 }).map((_, index) => (
               <div
@@ -97,6 +108,14 @@ function ProjectDetailPage() {
               </div>
             ))}
       </section>
+
+      <ImageLightbox
+          images={project.images}
+          activeIndex={selectedImageIndex}
+          onClose={() => setSelectedImageIndex(null)}
+          onChange={setSelectedImageIndex}
+        />
+
     
       <section className="other-projects">
         <div className="other-projects-header">
