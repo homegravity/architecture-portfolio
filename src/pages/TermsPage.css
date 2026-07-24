@@ -7,6 +7,7 @@
 .terms-header {
   max-width: 680px;
   margin-bottom: clamp(72px, 10vw, 120px);
+  animation: page-reveal 480ms ease both;
 }
 
 .terms-label {
@@ -41,6 +42,8 @@
   border-bottom: 1px solid #e8e8e8;
   grid-template-columns: 80px 180px 1fr;
   gap: 28px;
+  animation: page-reveal 500ms ease both;
+  animation-delay: calc(80ms + (var(--terms-index) * 55ms));
 }
 
 .terms-number {
@@ -79,6 +82,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  animation: page-reveal 500ms ease both;
+  animation-delay: 320ms;
 }
 
 .terms-notice p,

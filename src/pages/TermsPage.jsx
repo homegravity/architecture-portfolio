@@ -16,11 +16,14 @@ function TermsPage() {
       </header>
 
       <div className="terms-list">
-        {termsInfo.map((item, index) => (
-          <section
-            className="terms-item"
-            key={item.title}
-          >
+      {termsInfo.map((item, index) => (
+            <section
+              className="terms-item"
+              key={item.title}
+              style={{
+                '--terms-index': index,
+              }}
+            >
             <p className="terms-number">
               {String(index + 1).padStart(2, '0')}
             </p>

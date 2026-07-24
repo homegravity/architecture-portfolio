@@ -40,7 +40,9 @@
   transition:
     border-color 280ms ease,
     transform 280ms ease;
-}
+  animation: card-reveal 500ms ease both;
+  animation-delay: calc(100ms + (var(--card-index) * 70ms));
+  }
 
 .project-thumbnail {
   position: relative;
@@ -231,4 +233,9 @@
 .project-card:hover .project-open-mark {
   opacity: 1;
   transform: translate(0, 0);
+}
+
+
+.archive-intro {
+  animation: page-reveal 480ms ease both;
 }

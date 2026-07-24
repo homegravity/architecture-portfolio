@@ -7,6 +7,7 @@
 .about-header {
   max-width: 760px;
   margin-bottom: clamp(72px, 10vw, 130px);
+  animation: page-reveal 480ms ease both;
 }
 
 .about-label {
@@ -50,6 +51,8 @@
     );
   color: #aaaaaa;
   place-items: center;
+  animation: page-reveal 520ms ease both;
+  animation-delay: 80ms;
 }
 
 .about-profile-media img {
@@ -315,4 +318,29 @@
   justify-self: end;
   color: #aaaaaa;
   font-size: 0.72rem;
+}
+
+
+.about-sections > .about-section {
+  animation: page-reveal 520ms ease both;
+}
+
+.about-sections > .about-section:nth-child(1) {
+  animation-delay: 120ms;
+}
+
+.about-sections > .about-section:nth-child(2) {
+  animation-delay: 170ms;
+}
+
+.about-sections > .about-section:nth-child(3) {
+  animation-delay: 220ms;
+}
+
+.about-sections > .about-section:nth-child(4) {
+  animation-delay: 270ms;
+}
+
+.about-sections > .about-section:nth-child(5) {
+  animation-delay: 320ms;
 }

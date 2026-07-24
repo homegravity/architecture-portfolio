@@ -11,11 +11,14 @@ function ArchivePage() {
       </header>
 
       <section className="project-grid" aria-label="작업물 목록">
-        {projects.map((project) => (
-            <Link
-            className="project-card"
-            key={project.id}
-            to={`/archive/${project.slug}`}
+      {projects.map((project, index) => (
+        <Link
+          className="project-card"
+          key={project.id}
+          to={`/archive/${project.slug}`}
+          style={{
+            '--card-index': index,
+          }}
             aria-label={`${project.title} 상세 페이지 보기`}
           >
             
