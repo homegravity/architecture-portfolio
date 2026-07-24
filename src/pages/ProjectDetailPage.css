@@ -338,3 +338,7 @@
   opacity: 0.94;
   transform: scale(1.015);
 }
+
+.project-detail-image.is-wide {
+  grid-column: 1 / -1;
+}

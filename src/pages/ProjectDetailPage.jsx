@@ -80,9 +80,11 @@ function ProjectDetailPage() {
         {project.images.length > 0
           ? project.images.map((image, index) => (
             <figure
-            className="project-detail-image"
-            key={`${image.src}-${index}`}
-          >
+              className={`project-detail-image ${
+                image.layout === 'wide' ? 'is-wide' : ''
+              }`}
+              key={`${image.src}-${index}`}
+            >
             <button
               className="project-image-button"
               type="button"

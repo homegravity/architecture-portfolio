@@ -18,6 +18,20 @@ function ArchivePage() {
             to={`/archive/${project.slug}`}
             aria-label={`${project.title} 상세 페이지 보기`}
           >
+            
+            <span className="project-index">
+              {String(project.id).padStart(2, '0')}
+            </span>
+            
+            <span
+              className="project-open-mark"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+
+
+
             <div className="project-thumbnail">
               {project.thumbnail ? (
                 <img
